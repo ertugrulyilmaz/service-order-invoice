@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: prod
+
+server:
+  port: ${SERVER_PORT:9002}
+
+consul:
+  agent:
+    host: ${CONSUL_AGENT_HOST:localhost}
+    port: ${CONSUL_AGENT_PORT:8500}

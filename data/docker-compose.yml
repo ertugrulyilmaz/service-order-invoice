@@ -1,0 +1,28 @@
+version: '3'
+services:
+  consul:
+    tty: true
+    image: 'consul'
+    container_name: 'consul'
+    ports:
+    - '8500:8500'
+
+    postgres:
+      tty: true
+      image: 'postgres'
+      container_name: 'postgres'
+      ports:
+      - '5432:5432'
+      environment:
+        POSTGRES_PASSWORD: eriks
+        #volumes:
+        #  - ${YOUR_LOCAL_VOLUME_FOR_POSTGRESQL}:/var/lib/postgresql/data
+        #- USE_YOUR_POSTGRE_DIR_LIKE_ABOVE:/var/lib/postgresql/data
+
+    sonarqube:
+      image: 'sonarqube:7.4-community'
+      container_name: 'sonarqube'
+      ports:
+      - '9000:9000'
+      - '9092:9092'
+
